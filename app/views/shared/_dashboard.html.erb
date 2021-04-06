@@ -1,0 +1,9 @@
+ 
+   <% if (request.original_url != root_url) && (!current_page?(new_user_session_path) && !current_page?(new_user_registration_path)) then %> 
+    
+    <%= render 'shared/navbar'%>
+    <%= render 'shared/aside'%>
+	<%= render 'shared/content'%>
+
+
+    <% end %>

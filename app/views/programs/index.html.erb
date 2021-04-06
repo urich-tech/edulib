@@ -1,0 +1,99 @@
+<div class="content-wrapper" style="min-height: 1894.8px;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h3>Popular Courses</h3>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Layout</a></li>
+              <li class="breadcrumb-item active">Courses</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <!-- Default box -->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Title</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                    <i class="fas fa-minus"></i></button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                    <i class="fas fa-times"></i></button>
+                </div>
+              </div>
+              <div class="card-body">
+                
+                  <hr>
+
+
+                  <div class="center">
+               
+                        <div class="row">
+                                <% @programs.each do |program| %>
+                                        <div class="col-md-3">
+                                               
+                                                <div class="thumbnail">
+                                                         
+                                                              <div class="card">
+                                                               <%= link_to image_tag(program.image.url), program, class: "card_img" %>
+                                                                            <div class="card_content">
+                                                                                  <h5 class="card_header"><%= link_to program.name, program %></h5>
+                                                                                
+                                                                                  <p class="card_text">Created By <%= program.lecturers %></p>
+
+                                                                                  <p>
+                                                                                    Level:
+                                                                                    <strong><%= program.level %></strong>
+                                                                                  </p>
+
+                                                                                       
+                                                                                        <%= link_to 'Explore', program, class: "btn carb_btn" %>
+                                                                                        <% if (user_signed_in?) %>
+                                                                                            <%= link_to 'Edit', edit_program_path(program), class: "btn btn-link" %>
+                                                                                            <%= link_to 'Destroy', program, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %>
+                                                                                            
+                                                                                        <% end %>
+                                                                                        <br>
+                                                                                </div>
+                                                                  </div>
+                                                              
+                                                    </div>
+
+
+                                        </div>
+                                  <% end %>
+                                
+                        </div>
+                  </div>
+
+                  <hr>
+
+                  <%= link_to 'New Program', new_program_path, class: "btn btn-link" %>
+
+
+
+              </div>
+              <!-- /.card-body -->
+             
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /.content -->
+</div>
+
